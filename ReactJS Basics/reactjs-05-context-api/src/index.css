@@ -1,0 +1,27 @@
+.componentAContext{
+    width: 1000px;
+    padding: 20px;
+    box-shadow: 0 0 10px black;
+    margin-top: 20px;
+}
+
+.componentBContext{
+    width: 800px;
+    padding: 20px;
+    box-shadow: 0 0 10px red;
+    margin-top: 20px;
+}
+
+.componentCContext{
+    width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 10px blue;
+    margin-top: 20px;
+}
+
+.componentDContext{
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 10px green;
+    margin-top: 20px;
+}

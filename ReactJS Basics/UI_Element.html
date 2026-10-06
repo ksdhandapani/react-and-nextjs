@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <!-- Integration of React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- Integration of React DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+    <!-- Integration of Babel to transpile JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<script type="text/babel"> // text/babel is used to indicate that the script contains JSX code that needs to be transpiled by Babel
+    // JSX code to create a React button element
+    var button = <button>React Button</button>;
+    // Rendering the button element to the DOM
+    ReactDOM.render(button, document.querySelector("body"));
+</script>
+</body>
+</html>

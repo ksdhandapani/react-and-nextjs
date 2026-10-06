@@ -1,0 +1,821 @@
+@tag:nextEditSuggestions
+
+ReactJS
+-------
+
+- ReactJS is a JavaScript Library
+- Library is a JS file which contains predefined functions, objects, and classes
+- Purpose of React is to create or build user interface
+- Most demanded libarary in the world to develop user interface
+- ReactJS is developed and maintained by Meta company
+
+Why we have to learn ReactJS?
+-----------------------------
+
+- ReactJS is most popular libary in the world to create UI
+- It is simple and easy to learn
+- It provides many inbuilt features to create optimised, high performance Single Page Application
+- It has rich ecosystem like redux, tailwind css, react router, axios etc
+- It has very big community support and backed by Meta
+
+How to create Frontend Application with ReactJS?
+------------------------------------------------
+
+Generally React is meant for creating user interfaces, we cannot create frontend application, but ther is a way.
+
+To create frontend application with react, we combine or integrate other libaries like
+
+Redux - for state management
+Axios - for API integration
+React Router - for routing in ReactJS
+React DOM - for managing DOM manipulation
+Tailwind CSS or Bootstrap - for styling the UI components
+Jest - Unit testing
+
+JSX (JavaScript and XML)
+
+To create User Interface in react, we have to understand the concept of JSX.
+
+JSX is a syntax that allows us to create UI elements or components in JavaScript using HTML-like code
+Without JSX, writing UI in React is hard to read and confusing
+JSX makes code Easy to read, Easy to write similar to HTML which developers already know
+JSX is not HTML, JSX is converted into JavaScript by Babel Compiler before running in browser
+
+Sample file:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <!-- Integration of React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- Integration of React DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+    <!-- Integration of Babel to transpile JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<script type="text/babel"> // text/babel is used to indicate that the script contains JSX code that needs to be transpiled by Babel
+    // JSX code to create a React button element
+    var button = <button>React Button</button>;
+    // Rendering the button element to the DOM
+    ReactDOM.render(button, document.querySelector("body"));
+</script>
+</body>
+</html>
+
+Output:
+
+FirstFileOutput.png
+
+We just learned to create a simple button element using JSX and React, but it is just creating UI, but we do not want to stick with Creating only the UI. We want to create a frontend application in which we can create UI, we can style the UI, api integarion, data mangement, data validations, routing and a lot of things we can do, for that we have to use one build tool called Vite.
+
+How to create React Application
+-------------------------------
+
+Vite (pronounced 'veet') is a modern build tool used to create and run front-end applications like React, Vue, Svelte, etc. It helps us to mange the React application by providing one internal development server.
+
+We have to run the following command to get this vite tool, we have to make sure that we have NodeJS installed on our system already.
+
+npm create vite@latest my-first-react-ecomm-app
+
+Logs:
+
+C:\Users\LENOVO\Downloads\ReactJS Basics>npm create vite@latest my-first-react-ecomm-app
+
+> npx
+> create-vite my-first-react-ecomm-app
+
+|
+o  Select a framework:
+|  React
+|
+o  Select a variant:
+|  JavaScript
+|
+o  Which linter to use?
+|  ESLint
+|
+o  Install with npm and start now?
+|  Yes
+|
+o  Scaffolding project in C:\Users\LENOVO\Downloads\ReactJS Basics\my-first-react-ecomm-app...
+|
+o  Installing dependencies with npm...
+
+added 143 packages, and audited 144 packages in 10s
+
+31 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+|
+o  Starting dev server...
+
+> my-first-react-ecomm-app@0.0.0 dev
+> vite
+
+
+  VITE v8.3.1  ready in 603 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+Output:
+
+my-first-react-ecomm-app-initial-page.png
+
+node_modules - is a collection of libraries
+src - is the main folder, in which we are going to work
+index.html - this is the only HTML file we will have in our application
+package-lock.json - is a file which contains all the information modules which are present in node_modules folder
+package.json - is a file that contains a brief information about the application
+vite.config.js - is a file contains the configuration of the build tool
+
+********************
+Component in ReactJS
+********************
+
+A component is a specific, reusable part of the user interface that represents how a piece of the app looks and behaves.
+A part can be a single UI element or a combination of multiple elements.
+There are two types of Component's
+
+1. Funtional Component
+2. Class Component - Outdated in the market
+
+Functional Component: Whenever we have a requirement to reuse your JSX or to pass dynamic data to that JSX code, we go for functional component.
+
+- A Functional Component is a JavaScript function that starts with a capital letter, takes props as input, and returns JSX.
+- They are easy to write and understand because they use less code than class component.
+- Functional Components support "Hooks", they are preferred and modern way to build React applications.
+
+*************************
+How to create a Component
+*************************
+
+To create a component, we need to create a folder named "components" under "src", this will be the master folder where we will have all our components.
+
+For each new component, we should have a dedicated folder and a JSX file, for example, for a Header component, we need to create a folder named "header" under "components" and a file named "Header.jsx" under the "header" folder.
+
+Whatever component, we create, we have to export it, because we want to render or use this component in some other file. 
+
+For example, we have created two components "Header" and "Footer" and exported them, now we want to show these components in the UI screen, for that we have to go to App.jsx and import those two components and use them, please look at the content of App content (App.jsx)
+
+Remove the code from index.css before running the application.
+
+Content of Header.jsx
+
+    function Header(props){
+        return (<div>
+            <h1>Header Component</h1>
+        </div>);
+    }
+
+    export default Header;
+
+Content of Footer.jsx
+
+    function Footer(props){
+        return (<div>
+            <h1>Footer Component</h1>
+        </div>);
+    }
+
+    export default Footer;
+
+Content of App.jsx
+
+    import Header from "./components/header/Header";
+    import Footer from "./components/footer/Footer"
+
+    function App(props){
+     return (<div>
+      <Header />
+      <Footer />
+     </div>); 
+    }
+
+    export default App;
+
+Output:
+
+Header_Footer_Component_First_Output.png
+
+Let's create one more Functional Component called "Main" component
+
+Content of Main.jsx
+
+    import "./Main.css"
+
+    function Main(props) {
+        return (<div>
+            <p className="main">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+            </p>
+        </div>);
+    }
+
+    export default Main;
+
+Content of Main.css
+
+    .main {
+        color: green;
+        background-color: black;
+        padding: 20px;
+    }
+
+Content of App.jsx
+
+    import Header from "./components/header/Header";
+    import Footer from "./components/footer/Footer";
+    import Main from "./components/main/Main";
+
+    function App(props){
+     return (<div>
+      <Header />
+      <Main />
+      <Footer />
+     </div>); 
+    }
+
+    export default App;
+
+Output:
+
+Header_Footer_Component_Second_Output.png
+
+*************************************************
+Creating a simple Card using Functional Component
+*************************************************
+
+reactjs-02-card-using-func-component
+
+Content of Card.jsx
+
+import "./Card.css"
+
+        function Card(props) {
+            return (<div className="card">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/024/354/252/small/businessman-isolated-illustration-ai-generative-free-photo.jpg" width={"100%"} height={230} alt="" />
+            <h2>Rajiv Shukla</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <button>Profile Details</button>
+            </div>);
+        }
+
+        export default Card;
+
+Content of Card.css
+
+        .card {
+            width: 280px;
+            height: 420px;
+            box-shadow: 0 0 10px black;
+            margin: 50 px;
+            text-align: center;
+        }
+
+        .card h2 {
+            color: green;
+        }
+
+        .card p {
+            font-style: italic;
+        }
+
+        .card button {
+            padding: 15px 30px;
+            border: none;
+            background-color: green;
+            color: white;
+            border-radius: 10 px;
+        }
+
+Content of App.jsx
+
+        import Card from "./components/card/Card";
+        import "./App.css"
+
+        function App() {
+            return (<div className="app">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>);
+        }
+
+        export default App;
+
+Content of App.css
+
+        .app {
+          display: flex;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+        }
+
+Output:
+
+02_Card_Using_Functional_Component.png
+
+*******************************
+How to make a component Dynamic
+*******************************
+
+To make our component dynamic, we are going to use the concept of "props"
+
+Props is like an input data that we will give to our components.
+
+How we are going to pass arguments when we are calling our component or rending a component in a tag format? for that, we are going to pass the input data in a attribute format like below.
+
+Content of App.jsx
+
+        import Card from "./components/card/Card";
+        import "./App.css"
+
+        function App() {
+            return (<div className="app">
+                <Card name="Dhandapani Sudhakar"/>
+                <Card name="Velmurugan Gugan"/>
+                <Card name="Yogesh Ravichandran"/>
+                <Card name="Veerakumar Manivasagam" />
+            </div>);
+        }
+
+        export default App;
+
+** When you are rendering same component multiple times, make sure that your attribute key names are the same and values can be different.
+
+A props is a property of a component.
+"props" is used to pass as a input data to the component.
+
+Content of App.jsx
+
+        import Card from "./components/card/Card";
+        import "./App.css"
+
+        function App() {
+            return (<div className="app">
+                <Card name="Dhandapani Sudhakar" imageUrl="https://static.vecteezy.com/system/resources/thumbnails/057/936/076/small/confident-businessman-smiling-with-arms-crossed-conveying-professionalism-and-success-photo.jpg" />
+                <Card name="Velmurugan Gugan" imageUrl="https://img.magnific.com/free-photo/ambitious-businessman-standing-street_1262-3451.jpg?semt=ais_hybrid&w=740&q=80" />
+                <Card name="Yogesh Ravichandran" imageUrl="https://images.pexels.com/photos/37842959/pexels-photo-37842959.jpeg?cs=srgb&dl=pexels-julien-realtor-2147745923-37842959.jpg&fm=jpg" />
+                <Card name="Veerakumar Manivasagam" imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9ZKFL0D5uGiEGEPW6dtUnbMaR9d0JO_H9RhzxFo0fkG9WDoI8hvL2uImC&s=10" />
+            </div>);
+        }
+
+        export default App;
+
+Content of Card.jsx
+
+        import "./Card.css"
+
+        function Card(props) {
+            // props is an object that contains all the properties passed to the component.
+            // In this case, we are using props.name to access the name property passed from the parent component (App.jsx).
+            // This allows us to make the Card component dynamic, as it can display different names based on the props it receives.
+            return (<div className="card">
+                <img src={props.imageUrl} width={"100%"} height={230} alt="" />
+                <h2>{props.name}</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <button>Profile Details</button>
+            </div>);
+        }
+
+        export default Card;
+
+Outout:
+
+03_How_To_Make_A_Component_Dynamic.png
+
+*************************
+STATE CONCEPT IN REACT JS
+*************************
+
+reactjs-04-state-concept-in-react
+
+In React, state is a built-in object used to store data or information about the component that can change over time. When the state of the component changes, React automatically re-renders the component to update the User Interface to reflect the new data.
+
+- State is a variable that stores the data and is bound to the UI.
+- State automatically updates the UI when it value changes.
+- State is created using "useState" hook inside a functional component to store and manage the data that updates the UI.
+- Using State, we can make UI dynamic.
+
+>>> How to create a State
+
+Basic Syntax:
+
+        import React, { useState } from 'react';
+
+        const [state, setState] = useState(initialValue);
+
+state - the current value of the state
+setState - the function used to update the state
+initialValue - the starting value (can be a number, string, boolean, object, or array)
+
+Example:
+
+- Import "useState" Hook
+    
+    import { useState } from "react";
+
+- Call useState Hook, it returns an array, we can destructure and in that we can add two references like "count" and "setCount"
+
+    const[count, setCount] = useState(0)
+
+First element of the array is our state variable, in that state if we want to store any default variable, then we can pass that data as a argument to "useState", that data will be stored inside the state variable. 
+
+- Access state as a first element from the array
+
+count is a state here 
+
+Practical Example 1:
+
+Content of Counter.jsx
+
+        import { useState } from "react";
+        import "./Counter.css"
+
+        function Counter(){
+            const [state, setState] = useState(0);
+
+            const increaseCount = ()=> {
+                setState(state + 1)
+            };
+
+            const decreaseCount = ()=> {
+                setState(state - 1)
+            };
+
+            return (
+                <div style={{ padding: "50px" }}>
+                    <h1>Count: {state}</h1>
+                    <button className="increaseBtn" onClick={ increaseCount }>Increase Count</button>
+                    <button className="decreaseBtn" onClick={ decreaseCount }>Decrease Count</button>
+                </div>
+            );
+        }
+
+        export default Counter;
+
+Content of Counter.css
+
+        .increaseBtn {
+            margin: 10px;
+            color: green;
+            height: 50px;
+            width: 100px;
+        }
+
+        .decreaseBtn {
+            margin: 10px;
+            color: red;
+            height: 50px;
+            width: 100px;
+        }
+
+Content of App.jsx
+
+        import Card from "./components/card/Card";
+        import Counter from "./components/state/Counter";
+        import "./App.css"
+
+        function App() {
+            return (<div className="app">
+                <Counter />
+            </div>);
+        }
+
+        export default App;
+
+Output 1: Increase
+
+04_1_Increase_State.png
+
+Output 2: Decrease
+
+04_2_Decrease_State.png
+
+Practical Example 2:
+
+Content of Card.jsx
+
+        import { useState } from "react";
+        import "./Card.css"
+
+        function Card(props) {
+            const [imageUrl, setImageUrl] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyjH3jOp6Qn4KAL-iJz8nq0J6kpw6cpdtEMUs_cFHfrg&s=10");
+            const [name, setName] = useState("Rajiv Gandhi");
+            return (<div className="card">
+                <img src={imageUrl} width={"100%"} height={230} alt="" />
+                <h2>{name}</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <button onClick={() => {
+                    setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyjH3jOp6Qn4KAL-iJz8nq0J6kpw6cpdtEMUs_cFHfrg&s=10")
+                    setName("Rajiv Gandhi");
+                }}>Rajiv</button>
+                <button onClick={() => {
+                    setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP5FkoEXV9skOF6UFHwMX2bYkq8EQUB0XztA6QlWtHTg&s=10")
+                    setName("Sonia Gandhi");
+                }}>Sonia</button>
+            </div>);
+        }
+
+        export default Card;
+
+Content of App.jsx
+
+        import Card from "./components/card/Card";
+        import Counter from "./components/state/Counter";
+        import "./App.css"
+
+        function App() {
+            return (<div className="app">
+                <Counter />
+                <Card />
+
+            </div>);
+        }
+
+        export default App;
+
+Output 1: Rajiv
+
+04_3_State_Rajiv.png
+
+Output 2: Sonia
+
+04_4_State_Sonia.png
+
+***********
+CONTEXT API
+***********
+
+The React Context API is a built-in feature that allows you to share data (like themes, user authentication, or global settings) deeply across a component tree without manually passing props down through every level (a problem known as "prop drilling").
+
+How does it work? The 3 Core Pillars
+
+To use the Context API, we follow a straightforward three-step lifecycle:
+
+1. createContext: Initializes the data store and sets an optional default fallback value / Defines the data store.
+2. Provider: Wraps the parent component tree and broadcasts the data down to any children / Wraps a parent component tree and broadcasts the data (value)
+3. useContext: A Hook used by child components to tune into the broadcast and extract the data / Used by any child component anywhere below the provider to pull that data instantly
+
+>>> Problem with the Props (Prop Drilling):
+
+If we have a state at the top level (App.js) and need it 5 layers down, we must pass that prop through every single intermediate component, even if those middle components don't care about the data. This results in cluttered, hard-to-maintain code. 
+
+>>> Difference between Props and Context API:
+
+The main difference between "Props" and the "Context API" is how they pass data through your application. Props are used to pass data sequentially down from a parent component to a direct child component, whereas the Context API acts as a global broadcast system that allows any component in the tree to access data directly without passing it through intermediate components.
+
+• Use Props for 90% of your application's UI logic. Keeping data flow explicit makes your codebase predictable and easy to debug.
+• Use Context API sparingly, strictly for global, low-frequency state updates like app themes (dark/light mode), user login sessions, or localization preferences. If your global state updates frequently or grows highly complex, consider lightweight state managers like Zustand or Redux to prevent rendering performance bottlenecks.
+
+>>> Steps to implement Context API
+
+1. Create a Context
+2. Render Provider Component in a Parent Component using context
+3. Consume the Context
+
+Practical Example:
+
+context.js
+
+        import { createContext } from "react"
+
+        // Create a context object using the createContext function from React. 
+        // This context will be used to share data between components without having to pass props down manually at every level.
+        const myContext = createContext();
+
+        // Export the context object so that it can be imported and used in other components.
+        export default myContext;
+
+Content of ComponentA.jsx:
+
+        import { useState } from "react";
+
+        import ComponentB from "./ComponentB"
+
+        import myContext from "./context";
+
+        function ComponentA() {
+            const [state, setState] = useState("Mallikarjun");
+            return (
+                <div className="componentAContext">
+                    <h1>Component A</h1>
+                    <button onClick={()=>{
+                        setState("Kharge")
+                    }}>Mofify</button>
+                    {/* The myContext.Provider component is used to provide the context value (state) to its child components.
+                    Any component that is a descendant of this provider can access the context value using the useContext hook. */}
+                    <myContext.Provider value={state}>
+                        {/* ComponentB is a child component of ComponentA and will have access to the context value (state) provided by the myContext.Provider. */}
+                        <ComponentB />
+                    </myContext.Provider>
+                </div>
+            );
+        }
+
+        export default ComponentA;
+
+Content of ComponentB.jsx:
+
+        import ComponentC from "./ComponentC"
+        function ComponentB(){
+            return (
+                <div className="componentBContext">
+                    <h1>Component B</h1>
+                    <ComponentC />
+                </div>
+            );
+        }
+
+        export default ComponentB;
+
+Content of ComponentC.jsx:
+
+        import ComponentD from "./ComponentD"
+
+        function ComponentC(){
+            return (
+                <div className="componentCContext">
+                    <h1>Component C</h1>
+                    <ComponentD />
+                </div>
+            );
+        }
+
+        export default ComponentC;
+
+Content of ComponentD.jsx:
+
+        import { useContext } from "react"
+        import myContext from "./context";
+
+        function ComponentD(){
+            /* The useContext hook is used to access the context value provided by the myContext.Provider in ComponentA.
+            It allows ComponentD to consume the context value (state) without having to pass it down through props. */
+            const data = useContext(myContext)
+            return (
+                <div className="componentDContext">
+                    {/* Display the context value (data) in ComponentD. This value is provided by the myContext.Provider in ComponentA. */}
+                    <h1>Component D: {data}</h1>
+                </div>
+            );
+        }
+
+        export default ComponentD;
+
+Content of App.jsx:
+
+        import ComponentA from "./components/context-api/ComponentA";
+        import Counter from "./components/state/Counter";
+        import "./App.css"
+
+        function App() {
+            return (<div className="app">
+                <ComponentA />
+            </div>);
+        }
+
+        export default App;
+
+Content of index.css:
+
+        .componentAContext{
+            width: 1000px;
+            padding: 20px;
+            box-shadow: 0 0 10px black;
+            margin-top: 20px;
+        }
+
+        .componentBContext{
+            width: 800px;
+            padding: 20px;
+            box-shadow: 0 0 10px red;
+            margin-top: 20px;
+        }
+
+        .componentCContext{
+            width: 600px;
+            padding: 20px;
+            box-shadow: 0 0 10px blue;
+            margin-top: 20px;
+        }
+
+        .componentDContext{
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 10px green;
+            margin-top: 20px;
+        }
+
+Output 1: Before clicking on 'Modify'
+
+    05_01_Context_API_Before_Clicking_On_Modify.png
+
+Output 2: After clicking on 'Modify'
+
+    05_02_Context_API_After_Clicking_On_Modify.png
+
+*******************
+ROUTING IN REACT JS
+*******************
+
+How to configure Routing in ReactJS
+
+- Install this package by running the command "npm install react-router-dom"
+- Wrap App Component inside the BrowserRouter
+- Configure the Router path for all links
+- Configure the Route for every component
+- Wrap all Route Component in Routes component
+- Replace all Anchor Element with Link Component
+
+Installation logs:
+
+        C:\Users\LENOVO\Downloads\ReactJS Basics\reactjs-06-routing>npm install react-router-dom
+
+        added 4 packages, and audited 148 packages in 3s
+
+        32 packages are looking for funding
+          run `npm fund` for details
+
+        1 high severity vulnerability
+
+        To address all issues, run:
+          npm audit fix
+
+        Run `npm audit` for details.
+
+Content of Main.jsx:
+
+        import { StrictMode } from 'react'
+        import { createRoot } from 'react-dom/client'
+        import './index.css'
+        import App from './App.jsx'
+        import { BrowserRouter } from "react-router-dom"
+
+        createRoot(document.getElementById('root')).render(
+          // StrictMode is a tool for highlighting potential problems in an application, here we are using it to wrap the entire application to help identify issues during development.
+          <StrictMode>
+            {
+          /* BrowserRouter is used to enable routing in the application. 
+          It wraps the App component, allowing the use of React Router features like Routes and Links within the App.
+          */}
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </StrictMode>,
+        )
+
+Content of App.jsx:
+
+        import ComponentLink from "./components/context-api/ComponentA";
+        import Counter from "./components/state/Counter";
+        import "./App.css"
+        import Home from "./components/routing/Home";
+        import Profile from "./components/routing/Profile";
+        import Product from "./components/routing/Product";
+        import { Route, Routes, Link } from "react-router-dom";
+
+        function App() {
+            return (
+                <div className="app">
+                    {/* The Link component is used to create navigation links in the application.
+                    It allows users to navigate between different routes without reloading the page, providing a seamless user experience. */}
+                    <Link to="/">Home</Link>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/products">Products</Link>
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    {/* The Routes component is used to define the routing structure of the application.
+                    It contains multiple Route components, each specifying a path and the corresponding component to render when that path is matched. */}
+                    <Routes>
+                        {/* The Route component defines a specific route in the application.
+                        It takes a path prop that specifies the URL path and an element prop that specifies the component to render when the path is matched. */}
+                        <Route path={"/"} element={<Home />} />
+                        <Route path={"/profile"} element={<Profile />} />
+                        <Route path={"/products"} element={<Product />} />
+                    </Routes>
+                </div>);
+        }
+
+        export default App;
+
+Output: Home
+
+06_01_Routing_Home.png
+
+Output: Profile
+
+06_02_Routing_Profile.png
+
+Output: Product
+
+06_03_Routing_Product.png

@@ -1,0 +1,13 @@
+.increaseBtn {
+    margin: 10px;
+    color: green;
+    height: 50px;
+    width: 100px;
+}
+
+.decreaseBtn {
+    margin: 10px;
+    color: red;
+    height: 50px;
+    width: 100px;
+}
