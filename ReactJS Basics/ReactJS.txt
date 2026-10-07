@@ -819,3 +819,138 @@ Output: Profile
 Output: Product
 
 06_03_Routing_Product.png
+
+************************
+API INTEGRATION IN REACT
+************************
+
+If we want to implement API integration in React, we have to use a library called "Axios". 
+
+>>> Axios
+
+Axios is a Promise based JavaScript library used for implementing API integration in any JavaScript based applications like React JS, React Native, and Node JS.
+
+- Make XMLHtttpRequest from the browser
+- Make HTTP Request from node.js
+- Supports the Promise API
+- Intercept Request and Response
+- Cancel Requests
+
+How to use Axios with ReactJS:
+
+Install Axios library using 'npm install axios'
+
+Installation logs:
+
+        D:\GitHubRepos\react-and-nextjs\ReactJS Basics\reactjs-07-api-integration>npm install axios
+
+        added 25 packages, and audited 173 packages in 2s
+
+        38 packages are looking for funding
+          run `npm fund` for details
+
+        found 0 vulnerabilities
+
+
+Practical Example:
+
+Content of Products.jsx:
+
+        import React from "react";
+        import axios from "axios";
+        import { useState } from "react";
+
+        // The Products component is responsible for fetching and displaying a list of products from an external API. 
+        // It uses the useState hook to manage the state of the products array, and axios to make HTTP requests to the API. 
+        // When the "Get Products" button is clicked, it triggers the getProducts function, which fetches the product data and updates the state accordingly. 
+        // The component then renders the list of products in a structured format, including their title, description, images, price, and rating.
+        const productsApiUrl = "https://dummyjson.com/products";
+
+        function Products() {
+
+          // The useState hook is used to create a state variable called products, which is initialized as an empty array.
+          const [products, setProducts] = useState([]);
+
+          // The getProducts function is responsible for fetching the product data from the API.
+          // It uses axios to make a GET request to the specified API URL. 
+          // If the request is successful, it updates the products state with the retrieved data. 
+          // If there is an error during the request, it displays an alert and logs the error to the console.
+          const getProducts = () => {
+            axios.get(productsApiUrl).then((response) => {
+              console.log(response.data);
+              setProducts(response.data.products);
+            }).catch((error) => {
+              alert("Something went wrong!");
+              console.log(error);
+            });
+          };
+
+          return (<div>
+            <h1>Products</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button onClick={getProducts}>Get Products</button>
+            {
+              // The products.length > 0 condition checks if there are any products in the state.
+              // If there are products, it renders a div with the className "products" that contains a list of product cards.
+              products.length > 0 && <div className="products">
+                {
+                  // The map function is used to iterate over the products array and render a product card for each product.
+                  products.map(({ title, description, images, price, rating }) => {
+                    return <div className="productCard">
+                      <img src={images} width={"100%"} height={200} alt="" />
+                      <h3>{title}</h3>
+                      <p>$ {price}</p>
+                      <p>{description}</p>
+                      <p>Rating: {rating}</p>
+                      <button>Prouct Details</button>
+                    </div>
+                  })
+                }
+              </div>
+            }
+          </div>);
+        }
+
+        export default Products;
+
+Content of App.jsx:
+
+        import ComponentLink from "./components/context-api/ComponentA";
+        import Counter from "./components/state/Counter";
+        import "./App.css"
+        import Home from "./components/routing/Home";
+        import Profile from "./components/routing/Profile";
+        import Products from "./components/routing/Products";
+        import { Route, Routes, Link } from "react-router-dom";
+
+        function App() {
+            return (
+                <div className="app">
+                    {/* The Link component is used to create navigation links in the application.
+                    It allows users to navigate between different routes without reloading the page, providing a seamless user experience. */}
+                    <Link to="/">Home</Link>
+                    <Link to="/profile">Profile</Link>
+                    <Link to="/products">Products</Link>
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    {/* The Routes component is used to define the routing structure of the application.
+                    It contains multiple Route components, each specifying a path and the corresponding component to render when that path is matched. */}
+                    <Routes>
+                        {/* The Route component defines a specific route in the application.
+                        It takes a path prop that specifies the URL path and an element prop that specifies the component to render when the path is matched. */}
+                        <Route path={"/"} element={<Home />} />
+                        <Route path={"/profile"} element={<Profile />} />
+                        <Route path={"/products"} element={<Products />} />
+                    </Routes>
+                </div>);
+        }
+
+        export default App;
+
+Output: Before clicking on the "Get Products" button
+
+Output: After clicking on the "Get Products" button
+

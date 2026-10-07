@@ -1,0 +1,24 @@
+.card {
+    width: 280px;
+    height: 420px;
+    box-shadow: 0 0 10px black;
+    margin: 50 px;
+    text-align: center;
+}
+
+.card h2 {
+    color: green;
+}
+
+.card p {
+    font-style: italic;
+}
+
+.card button {
+    padding: 11px 15px;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 10 px;
+    margin-right: 10px;
+}
