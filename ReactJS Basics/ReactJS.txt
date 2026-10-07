@@ -952,5 +952,8 @@ Content of App.jsx:
 
 Output: Before clicking on the "Get Products" button
 
+07_01_API_Integration_Before_Clicking_On_Get_Products_Button.png
+
 Output: After clicking on the "Get Products" button
 
+07_02_API_Integration_After_Clicking_On_Get_Products_Button.png
