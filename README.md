@@ -18,12 +18,16 @@ A complete, step-by-step reference guide covering core ReactJS fundamentals:
 - **Routing (`react-router-dom`):** Configuring client-side routes with `BrowserRouter`, `Routes`, `Route`, and `Link`.
 - **API Integration (`axios`):** Fetching and rendering data from external REST APIs.
 
+### 2. [TypeScript Refresher](./Notes_TypeScript.md)
+A reference to TypeScript fundamentals, including type annotations, unions, object types, interfaces, type guards, and generics.
+
 ---
 
 ## 📁 Repository Overview
 
 ```text
 react-and-nextjs/
+├── Notes_TypeScript.md     # TypeScript fundamentals and examples
 └── ReactJS Basics/
     ├── ReactJS.md          # Comprehensive ReactJS guide with embedded screenshots & code
     ├── ReactJS.txt         # Raw text notes
