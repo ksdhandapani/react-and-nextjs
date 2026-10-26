@@ -21,6 +21,9 @@ A complete, step-by-step reference guide covering core ReactJS fundamentals:
 ### 2. [TypeScript Refresher](./Notes_TypeScript.md)
 A reference to TypeScript fundamentals, including type annotations, unions, object types, interfaces, type guards, and generics.
 
+### 3. [React in TypeScript - Essentials](./React-In-TypeScript-Essentials/README.md)
+A set of hands-on React + TypeScript projects covering typed props, children, components, state, callbacks, and events. The [learning path](./React-In-TypeScript-Essentials/README.md) explains each example and how to run it.
+
 ---
 
 ## 📁 Repository Overview
@@ -28,6 +31,9 @@ A reference to TypeScript fundamentals, including type annotations, unions, obje
 ```text
 react-and-nextjs/
 ├── Notes_TypeScript.md     # TypeScript fundamentals and examples
+├── React-In-TypeScript-Essentials/
+│   ├── README.md           # React + TypeScript learning path and run instructions
+│   └── 01-... to 08-.../   # Standalone examples for React and TypeScript essentials
 └── ReactJS Basics/
     ├── ReactJS.md          # Comprehensive ReactJS guide with embedded screenshots & code
     ├── ReactJS.txt         # Raw text notes
