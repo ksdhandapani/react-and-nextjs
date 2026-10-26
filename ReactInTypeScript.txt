@@ -1,0 +1,47 @@
+Creating a new project
+----------------------
+
+- We are using vite build tool for creating the project
+- Use the following command to create a project name '01-storing-prop-type-as-custom-type'
+
+npm create vite@latest 01-storing-prop-type-as-custom-type
+
+Logs:
+
+		D:\GitHubRepos\react-and-nextjs\ReactInTypeScript>npm create vite@latest 01-storing-prop-type-as-custom-type
+		npm notice run npx
+		npm notice run create-vite 01-storing-prop-type-as-custom-type
+		│
+		◇  Select a framework:
+		│  React
+		│
+		◇  Select a variant:
+		│  TypeScript
+		│
+		◇  Which linter to use?
+		│  ESLint
+		│
+		◇  Install with npm and start now?
+		│  Yes
+		│
+		◇  Scaffolding project in D:\GitHubRepos\react-and-nextjs\ReactInTypeScript\01-storing-prop-type-as-custom-type...
+		│
+		◇  Installing dependencies with npm...
+
+		added 160 packages, and audited 161 packages in 37s
+
+		42 packages are looking for funding
+		  run `npm fund` for details
+
+		found 0 vulnerabilities
+		│
+		◇  Starting dev server...
+		npm notice run 01-storing-prop-type-as-custom-type@0.0.0 dev
+		npm notice run vite
+
+		  VITE v8.3.4  ready in 447 ms
+
+		  ➜  Local:   http://localhost:5173/
+		  ➜  Network: use --host to expose
+		  ➜  press h + enter to show help
+
